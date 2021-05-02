@@ -1,9 +1,15 @@
-<form action="/update" method="post">
-<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-<input name="id" value="<%= @post.id %>" type="hidden">
-  <label for="title">제목: </label>
-  <input type="text" id="title" name="title" value="<%= @post.title %>"><br><br>
-  <label for="content">내용: </label>
-  <input type="text" id="content" name="content" value="<%= @post.content %>"><br><br>
-  <input type="submit" value="Submit">
-</form>
+<div class="container mt-5">
+	<form class="mt-3 mb-5" action="/update" method="post">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <input name="id" value="<%= @post.id %>" type="hidden">
+		<div class="form-group">
+			<label for="title">제목</label>
+			<input type="text" class="form-control" name="title" class="form-control" value="<%= @post.title %>" id="title" aria-describedby="title" placeholder="제목을 입력하세요...">
+		</div>
+		<div class="form-group">
+            <label for="content">내용</label>
+            <textarea name="content" class="form-control" id="content"rows="3" placeholder="내용을 입력하세요..."><%= @post.content %></textarea>
+  	</div>
+		<button type="submit" class="btn btn-primary">저장하기</button>
+	</form>
+</div>
