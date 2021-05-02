@@ -1,0 +1,17 @@
+<form action="/create" method="post">
+<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <label for="title">제목: </label>
+  <input type="text" id="title" name="title"><br><br>
+  <label for="content">내용: </label>
+  <input type="text" id="content" name="content"><br><br>
+  <input type="submit" value="Submit">
+</form>
+<% @posts.each do |post| %>
+<hr>
+<h3>ID: <%= post.id %></h3>
+<h3>제목: <%= post.title %></h3>
+<h3>내용: <%= post.content %></h3>
+<a href="/edit?id=<%= post.id %>">수정</a>
+<a href="/delete?id=<%= post.id %>">삭제</a>
+<hr>
+<% end %>
